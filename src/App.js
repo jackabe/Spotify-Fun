@@ -70,12 +70,13 @@ class App extends React.Component {
     })
   }
 
-  next = (next) => {
+  next = () => {
     const token = this.state.accessToken;
+    const next = this.state.next;
     nextSearchForAlbums(token, next)
     .then((response) => {
       this.setState({
-        albums: response.albums.items,
+        albums: [...this.state.albums, ...response.albums.items],
         next: response.albums.next
       })
     })
@@ -93,6 +94,7 @@ class App extends React.Component {
   }
 
   render() {
+
       return (
         <section className="main">
             <Loading show={this.state.loading}/>
@@ -104,7 +106,14 @@ class App extends React.Component {
 
             <Header handleChange={this.onSearchInputChange} token={this.state.accessToken}/>
 
-            <AlbumFeed next={this.next} nextUrl={this.state.next} albums={this.state.albums}/>
+            <section className="albums">
+              <AlbumFeed next={this.next} nextUrl={this.state.next} albums={this.state.albums}/>
+
+              {this.state.next ?
+                        <p onClick={this.next} className="next">Next 20 Albums</p>
+                      : null }    
+            </section> 
+
         </section>
       )
   }

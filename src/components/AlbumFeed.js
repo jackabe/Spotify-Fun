@@ -54,14 +54,10 @@ class AlbumFeed extends React.Component {
         }
     }
 
-    next = () => {
-        this.props.next(this.props.nextUrl);
-    }
-
     render() {
 
         let albums = this.props.albums;
-        let message = "";
+        let message = null;
         if (!albums) {
             albums = [];
             message = "Please search to view albums!"
@@ -92,12 +88,11 @@ class AlbumFeed extends React.Component {
                         </article>
                     )
                 })}
+                
 
-                {this.props.nextUrl ?
-                       <p onClick={this.next} className="next">Next</p>
-                    : null }     
-
-                <p className="no-albums-message">{message}</p>
+                {message !== null ?
+                    <p className="no-albums-message">{message}</p>: null
+                }
 
                 {this.state.showAlbum ?
                     <ViewAlbum close={this.closeAlbum} image={this.state.album}/> : null

@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-family: spotify-circular,spotify-circular-cyrillic,spotify-circular-arabic,spotify-circular-hebrew,Helvetica Neue,Helvetica,Arial,Hiragino Kaku Gothic Pro,Meiryo,MS Gothic,sans-serif;
   -webkit-font-smoothing: antialiased;
+  background-color: black;
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -21,8 +22,13 @@ body {
 
 .top-navigation h1 {
   margin-left: 50px;
+  cursor: pointer;
   font-size: 20pt;
   color: #1DB954;
+}
+
+.top-navigation h1:hover {
+  color: white;
 }
 
 .search-input {
@@ -70,10 +76,8 @@ body {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
   flex-direction: row;
-  margin-left: 10px;
-  padding-top: 80px;
+  width: 90%;
 }
 
 .filter {
@@ -99,12 +103,28 @@ body {
   border: 0;
 }
 
+.albums {
+  width: 100%;
+  padding-top: 80px;
+  display: flex;
+  align-content:center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .grid article .album-cover {
   width: 250px;
   height: 250px;
   background-size: cover;
   background-position:center;
   background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.grid article:hover .album-details {
+  color: #1DB954;
 }
 
 .album-details {
@@ -128,6 +148,7 @@ body {
   height: 640px;
   border: 1px black solid;
   background-size: cover;
+  background-color: black;
   background-position:center;
   background-repeat: no-repeat;
 }
@@ -230,12 +251,16 @@ body {
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
-.next {
+.next {    margin-left: 0px;
   padding: 10px;
   border: 1px #1DB954 solid;
   cursor: pointer;
   bottom: 10px;
+  width: 200px;
   color: #1DB954;
+  margin-left: 40px;
+  margin-bottom: 30px;
+  margin-top: 10px;
 }
 
 .next:hover {
@@ -254,13 +279,13 @@ body {
 
   .search-input {
     margin-left: 10px;
-    max-width: 100%;
+    max-width: 100%;    
     min-width: 0px;
     margin-right: 10px;
   }
 
   .album-view {
-    width: 100%;
+    width: 300px;
     height: 300px;
   }
 
@@ -287,6 +312,20 @@ body {
     line-height: 1.4em;
     word-wrap: break-word;
   }
+
+  .grid {
+    width: 100%;
+  }
+
+  .grid article .album-cover {
+    width: 150px;
+    height: 150px;
+  }
+
+  .album-details {
+    width: 150px;
+  }
+
   .filter nav select {
     max-height: 20px;
     margin-left: 0px;
@@ -299,4 +338,12 @@ body {
     padding: 0;
     margin: 0;
   }
+  .next {
+    width: 80%;
+    color: #1DB954;
+    margin-left: 0px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+  
 }

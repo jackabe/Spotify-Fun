@@ -9,11 +9,15 @@ class Header extends React.Component {
         }
     }
 
+    onLogoClick = () => {
+        window.open("/", "_self");
+    }
+
     render() {
 
         return (
             <header className="top-navigation">
-                <h1>JackiFy</h1>
+                <h1 onClick={this.onLogoClick}>JackiFy</h1>
                 <SearchBar handleChange={this.props.handleChange}/>
             </header>
         )
