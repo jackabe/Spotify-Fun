@@ -49,12 +49,14 @@ class App extends React.Component {
   }
 
   onSearchInputChange = (event) => {
+    this.setState({loading: true});
     const token = this.state.accessToken;
     searchForAlbumns(token, event.target.value)
     .then((response) => {
       this.setState({
         albums: response.albums.items,
-        next: response.albums.next
+        next: response.albums.next,
+        loading: false
       })
     })
     .catch((error) => {
@@ -71,13 +73,15 @@ class App extends React.Component {
   }
 
   next = () => {
+    this.setState({loading: true})
     const token = this.state.accessToken;
     const next = this.state.next;
     nextSearchForAlbums(token, next)
     .then((response) => {
       this.setState({
         albums: [...this.state.albums, ...response.albums.items],
-        next: response.albums.next
+        next: response.albums.next,
+        loading: false
       })
     })
     .catch((error) => {
