@@ -11,6 +11,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Running the Project
 
+The server must be running to use the React website.
+
+The .env file contains the Spotify access keys, I did remove this with gitignore but you guys are going to need them.
+
 ### Install dependencies:
 
 ```
@@ -24,6 +28,7 @@ npm install
 npm start
 
 ```
+
 
 ### To start the express server run the command
 
