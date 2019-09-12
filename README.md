@@ -22,6 +22,14 @@ npm install
 
 ```
 
+### To start the express server run the command in a new terminal:
+
+```
+npm run start-server
+
+```
+
+
 ### To start the react website use the command:
 
 ```
@@ -29,13 +37,6 @@ npm start
 
 ```
 
-
-### To start the express server run the command in a new terminal:
-
-```
-npm run start-server
-
-```
 
 #### This server reloads with nodemon when there are changes
 
