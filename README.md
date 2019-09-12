@@ -30,7 +30,7 @@ npm start
 ```
 
 
-### To start the express server run the command
+### To start the express server run the command in a new terminal:
 
 ```
 npm run start-server
